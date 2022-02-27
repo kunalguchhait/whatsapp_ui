@@ -22,7 +22,7 @@ class _ChatPageState extends State<ChatPage> {
             height: 10.0,
           ),
           ListTile(
-            leading: const CircleAvatar(
+            leading:CircleAvatar(
              backgroundImage:AssetImage(data[index].avatarUrl),
             ),
             title:Text(data[index].name,
