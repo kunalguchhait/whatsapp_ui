@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui/pages/call_page.dart';
 import 'package:whatsapp_ui/pages/chat_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -61,9 +62,8 @@ class _MyHomePageState extends State<MyHomePage>
         children: const [
           Text('Camera'),
           ChatPage(),
-          // ChatScreen(),
           Text('Status'),
-          Text('Call'),
+          CallPage(),
         ],
       ),
     );
