@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/models/chat_model.dart';
+import 'package:whatsapp_ui/pages/chat_detail_page.dart';
+
 
 class ChatPage extends StatefulWidget {
   const ChatPage({ Key? key }) : super(key: key);
@@ -23,7 +25,8 @@ class _ChatPageState extends State<ChatPage> {
           ),
           ListTile(
             leading:CircleAvatar(
-             backgroundImage:AssetImage(data[index].avatarUrl),
+             backgroundImage:AssetImage(
+               data[index].avatarUrl),
             ),
             title:Text(data[index].name,
             style:const TextStyle(fontWeight: FontWeight.bold),
@@ -34,6 +37,10 @@ class _ChatPageState extends State<ChatPage> {
             trailing:Text(data[index].time,
             style:const TextStyle(color: Colors.grey,fontSize: 14.0),
             ),
+            onTap:(){
+              // print('chat detail open');
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const ChatDetailPage()));
+            } ,
           )
         ],
       )
