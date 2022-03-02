@@ -1,6 +1,9 @@
+// ignore_for_file: avoid_print, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/pages/call_page.dart';
 import 'package:whatsapp_ui/pages/chat_page.dart';
+import 'package:whatsapp_ui/pages/status_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -20,6 +23,8 @@ class _MyHomePageState extends State<MyHomePage>
     const Tab(text: 'STATUS'),
     const Tab(text: 'CALLS'),
   ];
+
+  get onPressed => null;
 
   @override
   void initState() {
@@ -62,10 +67,44 @@ class _MyHomePageState extends State<MyHomePage>
         children: const [
           Text('Camera'),
           ChatPage(),
-          Text('Status'),
+          StatusPage(),
           CallPage(),
         ],
       ),
+      floatingActionButton: _getFAB(),
     );
+  }
+
+  _getFAB() {
+    if (_tabController.index == 1) {
+      return FloatingActionButton(
+          // ignore: deprecated_member_use
+          backgroundColor: Theme.of(context).accentColor,
+          child: const Icon(
+            Icons.message,
+            color: Colors.white,
+          ),
+          onPressed: () => print('Open Chat'));
+    } else if (_tabController.index == 2) {
+      return FloatingActionButton(
+          // ignore: deprecated_member_use
+          backgroundColor: Theme.of(context).accentColor,
+          child: const Icon(
+            Icons.camera_alt,
+            color: Colors.white,
+          ),
+          onPressed: () => print('Open Camera'));
+    } else if (_tabController.index == 3) {
+      return FloatingActionButton(
+          // ignore: deprecated_member_use
+          backgroundColor: Theme.of(context).accentColor,
+          child: const Icon(
+            Icons.call,
+            color: Colors.white,
+          ),
+          onPressed: () => print('Open Call'));
+    } else {
+      return null;
+    }
   }
 }
